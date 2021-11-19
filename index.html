@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="fa">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Digital Whatch</title>
+    <style>
+        body{
+            background-color: rgba(6, 0, 42, 0.78);
+        }
+        .st-box{
+            margin: 90px auto 0;
+            padding: 70px;
+            background-color: rgba(158, 151, 193, 0.78);
+            width: 500px;
+            height: 500px;
+            border-radius: 100%;
+            box-shadow: 4px 2px 2px 2px;
+            text-align: center;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-size: 60px;
+            letter-spacing: 2px;
+        }
+    </style>
+</head>
+<body>
+    <div id="clock" class="st-box"></div>
+
+    <script>
+        'use strict';
+        function digitalclock() {
+            let time = new Date();
+            //getting hours, minutes and seconds.
+            let hours = time.getHours();
+            let minutes = time.getMinutes();
+            let seconds = time.getSeconds();
+
+            let mid = "AM";
+            if(hours > 12){
+                hours -= 12;
+                mid = "PM";
+
+            }
+
+            if(seconds < 10){
+                seconds = "0" + seconds;
+            }
+            if(minutes < 10){
+                minutes = "0" + minutes;
+            }
+            if(hours < 10){
+                hours = "0" + hours;
+            }
+
+            let clockbox = hours + ":" + minutes + ":" + seconds + mid;
+            document.getElementById('clock').textContent = clockbox;
+            setTimeout(digitalclock, 1000);
+        }
+        
+        digitalclock();
+    </script>
+</body>
+</html>
